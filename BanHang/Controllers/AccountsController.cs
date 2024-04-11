@@ -37,6 +37,11 @@ namespace BanHang.Controllers
             _accountService.Delete(id);
             return Ok(new { message = "Delete success" });
         }
+        [HttpGet("get-by-id")] 
+        public IActionResult Get(int id)
+        {
+            return Ok(_accountService.GetById(id));
+        }
 
     }
 }

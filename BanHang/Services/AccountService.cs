@@ -11,6 +11,8 @@ namespace BanHang.Services
         public void Register(RegisterRequest registerRequest);
         void Update(int id, UpdateRequest model);
         void Delete(int id);
+
+        Account? GetById(int id);
     }
     public class AccountService : IAccountService
     {
@@ -32,6 +34,11 @@ namespace BanHang.Services
         public IEnumerable<Account> GetAccounts()
         {
             return _context.Accounts;
+        }
+
+        public Account? GetById(int id)
+        {
+            return _context.Accounts.Find(id);
         }
 
         public void Register(RegisterRequest registerRequest)

@@ -1,4 +1,6 @@
-﻿namespace BanHang.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BanHang.Entities
 {
     public class Account
     {
