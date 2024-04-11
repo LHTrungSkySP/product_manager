@@ -1,5 +1,6 @@
 
 using BanHang.Helpers;
+using BanHang.Services;
 
 namespace BanHang
 {
@@ -13,6 +14,8 @@ namespace BanHang
             builder.Services.AddDbContext<BanHangContext>();
             // configure strongly typed settings object
             //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

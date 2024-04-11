@@ -6,7 +6,7 @@ namespace BanHang.Helpers
     public class BanHangContext: DbContext
     {
         protected readonly IConfiguration Configuration;
-        DbSet<Account> Accounts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         public BanHangContext(IConfiguration configuration)
         {

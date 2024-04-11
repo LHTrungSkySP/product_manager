@@ -74,3 +74,4 @@ C:\Users\Le Trung\Desktop\BanHang\BanHang\BanHang\bin\Debug\net7.0\Microsoft.Ent
 C:\Users\Le Trung\Desktop\BanHang\BanHang\BanHang\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Le Trung\Desktop\BanHang\BanHang\BanHang\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Le Trung\Desktop\BanHang\BanHang\BanHang\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\Le Trung\Desktop\BanHang\BanHang\BanHang\bin\Debug\net7.0\BCrypt.Net-Next.dll

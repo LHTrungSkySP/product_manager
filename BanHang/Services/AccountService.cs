@@ -1,34 +1,59 @@
-﻿using BanHang.Models.Accounts;
+﻿using BanHang.Entities;
+using BanHang.Helpers;
+using BanHang.Models.Accounts;
 
 namespace BanHang.Services
 {
-    public class UpdateRequest
-    {
-        public int Id { get; set; }
-        public string AccountName { get; set; }
-        public string Password { get; set; }
-    }
+
     public interface IAccountService
     {
+        IEnumerable<Account> GetAccounts();
         public void Register(RegisterRequest registerRequest);
-        void Update(UpdateRequest model);
+        void Update(int id, UpdateRequest model);
         void Delete(int id);
     }
     public class AccountService : IAccountService
     {
+        private BanHangContext _context;
+        
+        public AccountService(BanHangContext context)
+        {
+            _context = context;
+        }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Account? account = _context.Accounts.Find(id);
+            if (account != null)
+            {
+                _context.Accounts.Remove(account);
+            }
+        }
+
+        public IEnumerable<Account> GetAccounts()
+        {
+            return _context.Accounts;
         }
 
         public void Register(RegisterRequest registerRequest)
         {
-            throw new NotImplementedException();
+            Account account = new Account();
+            account.Id = _context.Accounts.Any() ? _context.Accounts.Max(acc => acc.Id) + 1 : 0;
+            account.AccountName = registerRequest.AccountName;
+            account.Password = BCrypt.Net.BCrypt.HashPassword(registerRequest.Password);
+            _context.Accounts.Add(account);
+            _context.SaveChanges();
         }
 
-        public void Update(UpdateRequest model)
+        public void Update(int id, UpdateRequest updateRequest)
         {
-            throw new NotImplementedException();
+            Account? account= _context.Accounts.Find(id); 
+            if (account != null) 
+            {
+                account.AccountName = updateRequest.AccountName;
+                account.Password = BCrypt.Net.BCrypt.HashPassword(updateRequest.Password);
+                _context.Accounts.Update(account);
+                _context.SaveChanges();
+            }
         }
     }
 }
