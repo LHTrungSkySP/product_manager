@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Le Trung\\Desktop\\BanHang\\BanHang\\BanHang\\BanHang.csproj": {}
+    "D:\\acccc\\authentication_authorize\\BanHang\\BanHang.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Le Trung\\Desktop\\BanHang\\BanHang\\BanHang\\BanHang.csproj": {
+    "D:\\acccc\\authentication_authorize\\BanHang\\BanHang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Le Trung\\Desktop\\BanHang\\BanHang\\BanHang\\BanHang.csproj",
+        "projectUniqueName": "D:\\acccc\\authentication_authorize\\BanHang\\BanHang.csproj",
         "projectName": "BanHang",
-        "projectPath": "C:\\Users\\Le Trung\\Desktop\\BanHang\\BanHang\\BanHang\\BanHang.csproj",
-        "packagesPath": "C:\\Users\\Le Trung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Le Trung\\Desktop\\BanHang\\BanHang\\BanHang\\obj\\",
+        "projectPath": "D:\\acccc\\authentication_authorize\\BanHang\\BanHang.csproj",
+        "packagesPath": "C:\\Users\\Welcome\\.nuget\\packages\\",
+        "outputPath": "D:\\acccc\\authentication_authorize\\BanHang\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Le Trung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.2, )"
@@ -86,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

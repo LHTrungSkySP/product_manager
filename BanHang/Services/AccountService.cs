@@ -1,17 +1,19 @@
-﻿using BanHang.Models.Accounts;
+﻿using BanHang.Entities;
+using BanHang.Models.Accounts;
 
 namespace BanHang.Services
 {
     public class UpdateRequest
     {
-        public int Id { get; set; }
-        public string AccountName { get; set; }
-        public string Password { get; set; }
+        public string? AccountName { get; set; }
+        public string? Password { get; set; }
     }
     public interface IAccountService
     {
+        IEnumerable<Account> GetAccounts();
+        Account GetAccountById(string accountId);
         public void Register(RegisterRequest registerRequest);
-        void Update(UpdateRequest model);
+        void Update(int id,UpdateRequest model);
         void Delete(int id);
     }
     public class AccountService : IAccountService
@@ -21,12 +23,22 @@ namespace BanHang.Services
             throw new NotImplementedException();
         }
 
+        public Account GetAccountById(string accountId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Account> GetAccounts()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Register(RegisterRequest registerRequest)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(UpdateRequest model)
+        public void Update(int id, UpdateRequest model)
         {
             throw new NotImplementedException();
         }
