@@ -1,4 +1,5 @@
-﻿using BanHang.Entities;
+﻿using AutoMapper;
+using BanHang.Entities;
 using BanHang.Helpers;
 using BanHang.Models.Accounts;
 
@@ -11,16 +12,17 @@ namespace BanHang.Services
         public void Register(RegisterRequest registerRequest);
         void Update(int id, UpdateRequest model);
         void Delete(int id);
-
         Account? GetById(int id);
     }
     public class AccountService : IAccountService
     {
         private BanHangContext _context;
-        
-        public AccountService(BanHangContext context)
+        private readonly IMapper _mapper;
+
+        public AccountService(BanHangContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public void Delete(int id)
         {
@@ -29,6 +31,8 @@ namespace BanHang.Services
             {
                 _context.Accounts.Remove(account);
             }
+            else
+                throw new AppException("Không tồn tại tài khoản này!");
         }
 
         public IEnumerable<Account> GetAccounts()
@@ -38,17 +42,27 @@ namespace BanHang.Services
 
         public Account? GetById(int id)
         {
-            return _context.Accounts.Find(id);
+            Account? account = _context.Accounts.Find(id);
+            if(account != null)
+            {
+                return _context.Accounts.Find(id);
+            }
+            throw new AppException("Không tồn tại tài khoản này!");
         }
 
         public void Register(RegisterRequest registerRequest)
         {
-            Account account = new Account();
-            account.Id = _context.Accounts.Any() ? _context.Accounts.Max(acc => acc.Id) + 1 : 0;
-            account.AccountName = registerRequest.AccountName;
-            account.Password = BCrypt.Net.BCrypt.HashPassword(registerRequest.Password);
-            _context.Accounts.Add(account);
-            _context.SaveChanges();
+            
+            if (!_context.Accounts.Any(x => x.AccountName == registerRequest.AccountName))
+            {
+                Account account = new Account();
+                account = _mapper.Map(registerRequest, account);
+                account.Password = BCrypt.Net.BCrypt.HashPassword(account.Password);
+                _context.Accounts.Add(account);
+                _context.SaveChanges();
+            }
+            else
+                throw new AppException("Tên đăng nhập " + registerRequest.AccountName + " đã được sử dụng!");
         }
 
         public void Update(int id, UpdateRequest updateRequest)
@@ -61,6 +75,8 @@ namespace BanHang.Services
                 _context.Accounts.Update(account);
                 _context.SaveChanges();
             }
+            else
+                throw new AppException("Không tồn tại tài khoản này!");
         }
     }
 }
