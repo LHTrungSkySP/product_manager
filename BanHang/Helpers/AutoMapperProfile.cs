@@ -8,6 +8,8 @@ namespace BanHang.Helpers
     {
         public AutoMapperProfile() 
         {
+            // Account -> AuthenticateResponse 
+            CreateMap<Account, AuthenticateResponse>();
             // RegisterRequest -> Account
             CreateMap<RegisterRequest, Account>();
 

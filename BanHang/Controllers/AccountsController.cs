@@ -1,10 +1,12 @@
-﻿using BanHang.Models.Accounts;
+﻿using BanHang.Authorization;
+using BanHang.Models.Accounts;
 using BanHang.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BanHang.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
@@ -14,12 +16,22 @@ namespace BanHang.Controllers
         {
             _accountService= accountService;
         }
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _accountService.Authenticate(model);
+            return Ok(response);
+        }
+
+
         [HttpGet("get-list")]
         public IActionResult GetAll()
         {
             return Ok(_accountService.GetAccounts());
         }
-        [HttpPost]
+        [AllowAnonymous]
+        [HttpPost("register")]
         public IActionResult Create(RegisterRequest registerRequest)
         {
             _accountService.Register(registerRequest);
