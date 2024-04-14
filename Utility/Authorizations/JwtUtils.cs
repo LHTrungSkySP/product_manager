@@ -1,16 +1,15 @@
-﻿using BanHang.Entities;
-using BanHang.Helpers;
+﻿using Infrastructure;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace BanHang.Authorization
+namespace Utility.Authorizations
 {
     public interface IJwtUtils
     {
-        public string GenerateToken(Account account);
+        public string GenerateToken<T>(T account, int id);
         public int? ValidateToken(string? token);
     }
     public class JwtUtils : IJwtUtils
@@ -20,14 +19,14 @@ namespace BanHang.Authorization
         {
             _appSettings = appSettings.Value;
         }
-        public string GenerateToken(Account account)
+        public string GenerateToken<T>(T account, int id)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", account.Id.ToString()) }),
+                Subject = new ClaimsIdentity(new[] { new Claim("id", id.ToString()) }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

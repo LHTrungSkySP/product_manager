@@ -1,6 +1,9 @@
-﻿using BanHang.Services;
+﻿using Application.Accounts.QueryHandler;
+using Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Utility.Authorizations;
 
-namespace BanHang.Authorization
+namespace WebAPI.Authorization
 {
     public class JwtMiddleware
     {
@@ -9,14 +12,15 @@ namespace BanHang.Authorization
         {
             _next = next;
         }
-        public async Task Invoke(HttpContext context, IAccountService accountService, IJwtUtils jwtUtils)
+        public async Task Invoke(HttpContext context, IJwtUtils jwtUtils)
         {
             string? token = context.Request.Headers.Authorization.FirstOrDefault()?.Split(" ").Last();
             var userId = jwtUtils.ValidateToken(token);
             if (userId != null)
             {
+                BanHangContext hangContext = new BanHangContext();
                 // attach user to context on successful jwt validation
-                context.Items["User"] = accountService.GetById(userId.Value);
+                context.Items["User"] = hangContext.Accounts.Find(userId.Value);
             }
             await _next(context);
         }

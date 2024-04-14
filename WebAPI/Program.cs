@@ -1,10 +1,13 @@
 
-using BanHang.Authorization;
-using BanHang.Helpers;
-using BanHang.Services;
+using WebAPI.Authorization;
+using WebAPI.Helpers;
+using Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System;
+using Application;
 
-namespace BanHang
+namespace WebAPI
 {
     public class Program
     {
@@ -13,18 +16,13 @@ namespace BanHang
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddDbContext<BanHangContext>();
+            //builder.Services.AddDbContext<BanHangContext>();
             // configure strongly typed settings object
             //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
             // auto map
-            builder.Services.AddAutoMapper(typeof(Program));
+            //builder.Services.AddAutoMapper(typeof(Program));
 
-            // configure strongly typed settings object
-            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
-            builder.Services.AddScoped<IAccountService, AccountService>();
-            builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 
 
             builder.Services.AddControllers();
@@ -57,6 +55,9 @@ namespace BanHang
                     }
                 });
             });
+            builder.Services
+                .AddInfrastructure()
+                .AddApplication();
 
             var app = builder.Build();
 
@@ -72,10 +73,7 @@ namespace BanHang
             app.UseMiddleware<JwtMiddleware>();
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
 
             app.Run();

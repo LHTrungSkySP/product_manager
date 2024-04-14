@@ -1,8 +1,8 @@
-﻿using BanHang.Entities;
+﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace BanHang.Authorization
+namespace WebAPI.Authorization
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
     public class AuthorizeAttribute: Attribute, IAuthorizationFilter

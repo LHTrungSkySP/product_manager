@@ -1,7 +1,8 @@
-﻿using System.Net;
+﻿using Common.Exceptions;
+using System.Net;
 using System.Text.Json;
 
-namespace BanHang.Helpers
+namespace WebAPI.Helpers
 {
     public class ErrorHandlerMiddleware
     {

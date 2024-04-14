@@ -1,58 +1,73 @@
-﻿using BanHang.Authorization;
-using BanHang.Models.Accounts;
-using BanHang.Services;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Accounts.CommandHandlers;
+using Application.Accounts.Commands;
+using Application.Accounts.Queries;
+using Application.Accounts.QueryHandler;
+using Application.Authenticates.Queries;
+using Application.Authenticates.QueryHandlers;
+using AutoMapper;
+using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Utility.Authorizations;
+using WebAPI.Authorization;
 
-namespace BanHang.Controllers
+namespace WebAPI.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
     {
-        private IAccountService _accountService;
-        public AccountsController(IAccountService accountService) 
+        private BanHangContext _context;
+        private readonly IMapper _mapper;
+        private readonly IJwtUtils _jwtUtils;
+        public AccountsController(BanHangContext context, IMapper mapper, IJwtUtils jwtUtils)
         {
-            _accountService= accountService;
+            _context = context;
+            _mapper = mapper;
+            _jwtUtils = jwtUtils;
         }
+
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
+        public IActionResult Authenticate(Authenticate model)
         {
-            var response = _accountService.Authenticate(model);
+            AuthenticateHandler authenticate = new AuthenticateHandler(_context, _mapper, _jwtUtils);
+            var response = authenticate.Authenticate(model);
             return Ok(response);
-        }
-
-
-        [HttpGet("get-list")]
-        public IActionResult GetAll()
-        {
-            return Ok(_accountService.GetAccounts());
         }
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Create(RegisterRequest registerRequest)
+        public IActionResult Create(CreateAccountCommand registerRequest)
         {
-            _accountService.Register(registerRequest);
-            return Ok( new { message = "Create success " + registerRequest.AccountName} );
+            CreateAccountCommandHandler createAccountCommand = new CreateAccountCommandHandler(_context, _mapper);
+            createAccountCommand.Register(registerRequest);
+            return Ok(new { message = "Create success " + registerRequest.AccountName });
+        }
+        [HttpGet("get-list")]
+        public IActionResult GetAll()
+        {
+            GetAllHandler getAllHandler = new GetAllHandler(_context, _mapper);
+            return Ok(getAllHandler.GetAccounts());
         }
         [HttpPut]
-        public IActionResult Update(int id, UpdateRequest updateRequest)
+        public IActionResult Update(int id, UpdateAccountCommand updateRequest)
         {
-            _accountService.Update(id,updateRequest);
-            return Ok( new { message = "Update success " + updateRequest.AccountName });
+            UpdateAccountCommandHandler updateAccountCommandHandler = new UpdateAccountCommandHandler(_context, _mapper);
+            updateAccountCommandHandler.Update(id, updateRequest);
+            return Ok(new { message = "Update success " + updateRequest.AccountName });
         }
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(DeleteAccountCommand deleteAccountCommand)
         {
-            _accountService.Delete(id);
+            DeleteAccountCommandHandler deleteAccountCommandHandler = new DeleteAccountCommandHandler(_context);
+            deleteAccountCommandHandler.Delete(deleteAccountCommand);
             return Ok(new { message = "Delete success" });
         }
-        [HttpGet("get-by-id")] 
-        public IActionResult Get(int id)
+        [HttpGet("get-by-id")]
+        public IActionResult Get(GetById id)
         {
-            return Ok(_accountService.GetById(id));
+            GetByIdHandler getByIdHandler = new GetByIdHandler(_context);
+            return Ok(getByIdHandler.GetById(id));
         }
 
     }
