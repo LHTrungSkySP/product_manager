@@ -1,1 +1,1 @@
-apply ignore file + demo division layer + submodule common
+divsion layer: config ConfigureServices, apply CQRS
