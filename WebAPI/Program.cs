@@ -1,11 +1,8 @@
-
-using WebAPI.Authorization;
-using WebAPI.Helpers;
 using Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System;
 using Application;
+using Web.API.Middlewares;
+using Web.API;
 
 namespace WebAPI
 {
@@ -15,49 +12,12 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            //builder.Services.AddDbContext<BanHangContext>();
-            // configure strongly typed settings object
-            //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
-            // auto map
-            //builder.Services.AddAutoMapper(typeof(Program));
-
-
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(config =>
-            {
-                config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    In = ParameterLocation.Header,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    Description = "JWT Authorization header using the Bearer scheme."
-                });
-
-                config.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            },
-                            In = ParameterLocation.Header,
-                        },
-                        new List<string>()
-                    }
-                });
-            });
             builder.Services
                 .AddInfrastructure()
-                .AddApplication();
+                .AddApplication()
+                .AddWebAPI();
 
             var app = builder.Build();
 

@@ -1,10 +1,9 @@
-﻿using Common.Exceptions;
-using Domain.Entities;
-using Infrastructure;
+﻿using Application.Accounts.Dto;
+using MediatR;
 
 namespace Application.Accounts.Commands
 {
-    public class DeleteAccountCommand
+    public class DeleteAccountCommand: IRequest<AccountDto>
     {
         public int Id { get; set; }
     }

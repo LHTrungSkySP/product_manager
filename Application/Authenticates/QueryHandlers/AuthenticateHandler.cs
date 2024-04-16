@@ -4,11 +4,12 @@ using Application.Authenticates.Queries;
 using AutoMapper;
 using Common.Exceptions;
 using Infrastructure;
+using MediatR;
 using Utility.Authorizations;
 
 namespace Application.Authenticates.QueryHandlers
 {
-    public class AuthenticateHandler
+    public class AuthenticateHandler : IRequestHandler<Authenticate, AuthenticateDto>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
@@ -19,7 +20,8 @@ namespace Application.Authenticates.QueryHandlers
             _mapper = mapper;
             _jwtUtils = jwtUtils;
         }
-        public AuthenticateDto Authenticate(Authenticate model)
+
+        public async Task<AuthenticateDto> Handle(Authenticate model, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<AccountDto>(_context.Accounts.SingleOrDefault(x => x.AccountName == model.AccountName));
             // validate
@@ -28,8 +30,8 @@ namespace Application.Authenticates.QueryHandlers
 
             // authentication successful
             var response = _mapper.Map<AuthenticateDto>(user);
-            response.Token = _jwtUtils.GenerateToken<AccountDto>(user,user.Id);
-            return response;
+            response.Token = _jwtUtils.GenerateToken<AccountDto>(user, user.Id);
+            return _mapper.Map<AuthenticateDto>(response);
         }
     }
 }
