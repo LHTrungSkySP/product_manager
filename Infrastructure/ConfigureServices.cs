@@ -13,16 +13,16 @@ namespace Infrastructure
 
             // configure strongly typed settings object
             var appSettings = new AppSettings();
-            configuration.GetSection("AppSettings").Bind(appSettings);
+            //configuration.GetSection("AppSettings").Bind(appSettings);
 
-            // Return an Action<AppSettings> that configures AppSettings using the bound values
-            Action<AppSettings> configureAppSettings = settings =>
-            {
-                settings.Secret = appSettings.Secret;
-                // Assign other settings as needed
-            };
+            //// Return an Action<AppSettings> that configures AppSettings using the bound values
+            //Action<AppSettings> configureAppSettings = settings =>
+            //{
+            //    settings.Secret = appSettings.Secret;
+            //    // Assign other settings as needed
+            //};
             // configure strongly typed settings object
-            services.Configure(configureAppSettings);
+            //services.Configure(configureAppSettings);
 
             // services.AddQueryRepository<AppDbContext>();
             services.AddDbContext<BanHangContext>();

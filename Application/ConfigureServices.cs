@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 using Utility.Authorizations;
+using Utility.FileLog;
 
 namespace Application
 {
@@ -15,7 +17,10 @@ namespace Application
             services.AddScoped<IJwtUtils, JwtUtils>();
 
             services.AddAutoMapper(assembly);
-
+            services.AddMediatR(configuration =>
+            {
+                configuration.RegisterServicesFromAssembly(assembly);
+            });
             return services;
         }
     }

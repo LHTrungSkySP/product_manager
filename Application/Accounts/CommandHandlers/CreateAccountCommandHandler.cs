@@ -1,9 +1,11 @@
 ﻿using Application.Accounts.Commands;
+using Application.Accounts.Dto;
 using Application.Authenticates.Queries;
 using AutoMapper;
 using Common.Exceptions;
 using Domain.Entities;
 using Infrastructure;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,7 @@ using Utility.Authorizations;
 
 namespace Application.Accounts.CommandHandlers
 {
-    public class CreateAccountCommandHandler
+    public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, AccountDto>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
@@ -23,19 +25,22 @@ namespace Application.Accounts.CommandHandlers
             _context = context;
             _mapper = mapper;
         }
-        public void Register(CreateAccountCommand registerRequest)
+        public async Task<AccountDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
 
-            if (!_context.Accounts.Any(x => x.AccountName == registerRequest.AccountName))
+            if (!_context.Accounts.Any(x => x.AccountName == request.AccountName))
             {
                 Account account = new Account();
-                account = _mapper.Map<Account>(registerRequest);
-                account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerRequest.Password);
+                account.AccountName = request.AccountName;
+                account.Password = request.Password;
+                //account = _mapper.Map<Account>(request);
+                account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
                 _context.Accounts.Add(account);
                 _context.SaveChanges();
+                return _mapper.Map<AccountDto>(account);
             }
             else
-                throw new AppException("Tên đăng nhập " + registerRequest.AccountName + " đã được sử dụng!");
+                throw new AppException("Tên đăng nhập " + request.AccountName + " đã được sử dụng!");
         }
     }
 }
