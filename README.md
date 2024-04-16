@@ -1,1 +1,1 @@
-apply ignore file + demo division layer + submodule common
+apply contextDB factory, MediatR, utility File log class
