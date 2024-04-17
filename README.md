@@ -1,1 +1,2 @@
-divsion layer: config ConfigureServices, apply CQRS
+
+apply contextDB factory, MediatR, utility File log class

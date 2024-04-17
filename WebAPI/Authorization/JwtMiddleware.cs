@@ -12,15 +12,14 @@ namespace WebAPI.Authorization
         {
             _next = next;
         }
-        public async Task Invoke(HttpContext context, IJwtUtils jwtUtils)
+        public async Task Invoke(HttpContext context, IJwtUtils jwtUtils, BanHangContext banHangContext)
         {
             string? token = context.Request.Headers.Authorization.FirstOrDefault()?.Split(" ").Last();
             var userId = jwtUtils.ValidateToken(token);
             if (userId != null)
             {
-                BanHangContext hangContext = new BanHangContext();
                 // attach user to context on successful jwt validation
-                context.Items["User"] = hangContext.Accounts.Find(userId.Value);
+                context.Items["User"] = banHangContext.Accounts.Find(userId.Value);
             }
             await _next(context);
         }

@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System;
 using Application;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
 
 namespace WebAPI
 {
@@ -18,7 +21,7 @@ namespace WebAPI
             // Add services to the container.
             //builder.Services.AddDbContext<BanHangContext>();
             // configure strongly typed settings object
-            //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
             // auto map
             //builder.Services.AddAutoMapper(typeof(Program));
