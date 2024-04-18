@@ -1,0 +1,11 @@
+2024-04-19 02:04:25,345  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-19 02:04:25,402  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-19 02:04:25,406  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-19 02:04:25,409  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-19 02:04:25,410  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: C:\Users\Le Trung\Desktop\BanHang\BanHang\WebAPI
+ 2024-04-19 02:04:34,363  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-19 02:04:34,370 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-19 02:04:34,372 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-19 02:04:34,374 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-19 02:04:34,375  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 

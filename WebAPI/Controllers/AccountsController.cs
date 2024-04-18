@@ -1,23 +1,12 @@
 ﻿using Application.Accounts.Commands;
 using Application.Accounts.Queries;
-using Application.Authenticates.Dto;
-using Application.Authenticates.Queries;
-using MediatR;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Web.API;
 using Web.API.Atributes;
 
-namespace WebAPI.Controllers
+namespace Web.API.Controllers
 {
     public class AccountsController : ApiControllerBase
     {
-        [AllowAnonymous]
-        [HttpPost("authenticate")]
-        public async Task<IActionResult> Authenticate(Authenticate model)
-        {
-            return Ok(await Mediator.Send(model));
-        }
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Create(CreateAccountCommand registerRequest)
