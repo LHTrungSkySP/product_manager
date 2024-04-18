@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace WebAPI.Authorization
+namespace Web.API.Atributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
     public class AuthorizeAttribute: Attribute, IAuthorizationFilter

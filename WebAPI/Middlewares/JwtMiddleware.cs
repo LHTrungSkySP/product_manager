@@ -3,7 +3,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Utility.Authorizations;
 
-namespace WebAPI.Authorization
+namespace Web.API.Middlewares
 {
     public class JwtMiddleware
     {

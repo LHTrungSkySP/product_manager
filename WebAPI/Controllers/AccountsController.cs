@@ -1,16 +1,11 @@
-﻿using Application.Accounts.CommandHandlers;
-using Application.Accounts.Commands;
+﻿using Application.Accounts.Commands;
 using Application.Accounts.Queries;
-using Application.Accounts.QueryHandler;
 using Application.Authenticates.Dto;
 using Application.Authenticates.Queries;
-using Application.Authenticates.QueryHandlers;
-using AutoMapper;
-using Infrastructure;
+using MediatR;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Utility.Authorizations;
-using WebAPI.Authorization;
+using Web.API.Atributes;
 
 namespace WebAPI.Controllers
 {
