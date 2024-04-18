@@ -1,6 +1,8 @@
 ﻿using Application.Accounts.Commands;
 using Application.Accounts.Queries;
+using Application.Authenticates.Dto;
 using Application.Authenticates.Queries;
+using MediatR;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Web.API.Atributes;
