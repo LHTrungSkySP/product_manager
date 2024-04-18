@@ -8,7 +8,7 @@ namespace Web.API.Controllers
     public class AccountsController : ApiControllerBase
     {
         [AllowAnonymous]
-        [HttpPost("register")]
+        [HttpPost()]
         public async Task<IActionResult> Create(CreateAccountCommand registerRequest)
         {
             return Ok(await Mediator.Send(registerRequest));

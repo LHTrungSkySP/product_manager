@@ -17,11 +17,11 @@ namespace Infrastructure
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
-                .AddJsonFile("appsettings.json")
-                .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlConnectionString"));
+            //IConfigurationRoot configuration = new ConfigurationBuilder()
+            //    .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlConnectionString"));
         }
     }
     public class WebContextFactory : IDesignTimeDbContextFactory<BanHangContext>
