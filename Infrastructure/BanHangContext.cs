@@ -9,7 +9,10 @@ namespace Infrastructure
     public class BanHangContext: DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-
+        public DbSet<AssignGroup> AssignGroups { get; set; }
+        public DbSet<GroupPermission> GroupPermissions { get; set; }
+        public DbSet<AssignPermission> AssignPermissions { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
         protected readonly IConfiguration Configuration;
         public BanHangContext(IConfiguration configuration)
         {

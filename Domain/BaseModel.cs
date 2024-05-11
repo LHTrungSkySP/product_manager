@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain
+{
+    public abstract class BaseModel
+    {
+        public int Id { get; set; }
+        public DateTime CreatesdDate { get; set; } = new DateTime();
+        public DateTime UpdatesdDate { get; set;} = new DateTime();
+        public bool IsDeleted { get; set; }
+
+    }
+}

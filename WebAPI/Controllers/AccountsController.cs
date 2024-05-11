@@ -1,6 +1,7 @@
 ﻿using Application.Accounts.Commands;
 using Application.Accounts.Queries;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Web.API.Atributes;
 
 namespace Web.API.Controllers
