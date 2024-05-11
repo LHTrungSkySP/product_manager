@@ -1,0 +1,78 @@
+2024-04-19 02:04:25,345  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-19 02:04:25,402  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-19 02:04:25,406  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-19 02:04:25,409  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-19 02:04:25,410  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: C:\Users\Le Trung\Desktop\BanHang\BanHang\WebAPI
+ 2024-04-19 02:04:34,363  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-19 02:04:34,370 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-19 02:04:34,372 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-19 02:04:34,374 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-19 02:04:34,375  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:26:18,561  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-21 01:26:18,605  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-21 01:26:18,607  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-21 01:26:18,610  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-21 01:26:18,610  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-04-21 01:29:04,096  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-21 01:29:04,112 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-21 01:29:04,112 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-21 01:29:04,112 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-21 01:29:04,113  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:30:01,850  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-21 01:30:01,891  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-21 01:30:01,895  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-21 01:30:01,898  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-21 01:30:01,899  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-04-21 01:30:14,078  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-21 01:30:14,084 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-21 01:30:14,087 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-21 01:30:14,089 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-21 01:30:14,090  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:32:20,583  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-21 01:32:20,607  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-21 01:32:20,608  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-21 01:32:20,610  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-21 01:32:20,610  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-04-21 01:32:26,653  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-21 01:32:26,655 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-21 01:32:26,655 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-21 01:32:26,656 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-21 01:32:26,656  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:32:51,544  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-21 01:32:51,565  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-21 01:32:51,567  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-21 01:32:51,568  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-21 01:32:51,568  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-04-21 01:33:03,671  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-21 01:33:03,673 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-21 01:33:03,674 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-21 01:33:03,674 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-21 01:33:03,674  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:33:35,019  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-04-21 01:33:35,042  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-04-21 01:33:35,044  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-04-21 01:33:35,046  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-04-21 01:33:35,046  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-04-21 01:33:40,525  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-04-21 01:33:40,529 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-04-21 01:33:40,529 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-04-21 01:33:40,530 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-04-21 01:33:40,530  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 2024-04-21 01:34:53,387  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Application is shutting down...
+ 2024-05-11 10:01:52,962  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-05-11 10:01:52,993  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-05-11 10:01:52,994  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-11 10:01:52,996  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-11 10:01:52,996  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 2024-05-11 10:09:21,444  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Application is shutting down...
+ 2024-05-11 10:09:26,311  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-05-11 10:09:26,325  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-05-11 10:09:26,326  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-11 10:09:26,328  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-11 10:09:26,328  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 2024-05-11 10:09:45,912  INFO Web.API.Controllers.AuthenticationController.MoveNext [19] - MESSAGE: 000000000000000000000000
+ 2024-05-11 10:09:45,927 ERROR Web.API.Controllers.AuthenticationController.MoveNext [20] - MESSAGE: 0000000000000000000000000000
+ 2024-05-11 10:09:45,927 FATAL Web.API.Controllers.AuthenticationController.MoveNext [21] - MESSAGE: 000000000000000000000000000000000000000
+ 2024-05-11 10:09:45,927 DEBUG Web.API.Controllers.AuthenticationController.MoveNext [22] - MESSAGE: 000000000000000000000000000000000
+ 2024-05-11 10:09:45,928  WARN Web.API.Controllers.AuthenticationController.MoveNext [23] - MESSAGE: 00000000000000000000000000000000000
+ 

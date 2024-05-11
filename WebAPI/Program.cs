@@ -12,14 +12,14 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+ 
             builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
             builder.Services
                 .AddInfrastructure()
                 .AddApplication()
-                .AddWebAPI();
+                .AddWebAPI(builder.Logging);
 
-            var app = builder.Build();
+            var app = builder.Build();           
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
