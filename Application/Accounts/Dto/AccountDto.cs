@@ -10,7 +10,7 @@ namespace Application.Accounts.Dto
     public class AccountDto
     {
         public int Id { get; set; }
-        public string AccountName { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
         public string PasswordHash { get; set; }
     }

@@ -11,7 +11,7 @@ namespace Application.Authenticates.Queries
 {
     public class Authenticate: IRequest<AuthenticateDto>
     {
-        public string AccountName { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
     }
 }

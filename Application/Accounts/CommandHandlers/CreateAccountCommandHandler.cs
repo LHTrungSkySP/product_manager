@@ -28,10 +28,10 @@ namespace Application.Accounts.CommandHandlers
         public async Task<AccountDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
 
-            if (!_context.Accounts.Any(x => x.AccountName == request.AccountName))
+            if (!_context.Accounts.Any(x => x.Name == request.Name))
             {
                 Account account = new Account();
-                account.AccountName = request.AccountName;
+                account.Name = request.Name;
                 account.Password = request.Password;
                 //account = _mapper.Map<Account>(request);
                 account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
@@ -40,7 +40,7 @@ namespace Application.Accounts.CommandHandlers
                 return _mapper.Map<AccountDto>(account);
             }
             else
-                throw new AppException("Tên đăng nhập " + request.AccountName + " đã được sử dụng!");
+                throw new AppException("Tên đăng nhập " + request.Name + " đã được sử dụng!");
         }
     }
 }

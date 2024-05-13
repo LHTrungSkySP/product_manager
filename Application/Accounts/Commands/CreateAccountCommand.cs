@@ -11,7 +11,7 @@ namespace Application.Accounts.Commands
 {
     public class CreateAccountCommand : IRequest<AccountDto>
     {
-        public string AccountName { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
     }
 }

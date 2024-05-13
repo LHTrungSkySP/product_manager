@@ -23,7 +23,7 @@ namespace Application.Authenticates.QueryHandlers
 
         public async Task<AuthenticateDto> Handle(Authenticate model, CancellationToken cancellationToken)
         {
-            var user = _mapper.Map<AccountDto>(_context.Accounts.SingleOrDefault(x => x.AccountName == model.AccountName));
+            var user = _mapper.Map<AccountDto>(_context.Accounts.SingleOrDefault(x => x.Name == model.Name));
             // validate
             if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
                 throw new AppException("Username or password is incorrect");

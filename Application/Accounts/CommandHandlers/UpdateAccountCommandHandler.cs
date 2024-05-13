@@ -31,9 +31,9 @@ namespace Application.Accounts.CommandHandlers
             Account? account = _context.Accounts.Find(updateRequest.Id);
             if (account != null)
             {
-                if (_context.Accounts.Any(ac => ac.AccountName == updateRequest.AccountName))
+                if (_context.Accounts.Any(ac => ac.Name == updateRequest.Name))
                 {
-                    throw new AppException("Đã tồn tại " + updateRequest.AccountName + " trong hệ thống!");
+                    throw new AppException("Đã tồn tại " + updateRequest.Name + " trong hệ thống!");
                 }
                 if (!string.IsNullOrEmpty(account.Password))
                 {

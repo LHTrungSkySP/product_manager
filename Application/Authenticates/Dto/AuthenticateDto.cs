@@ -9,7 +9,7 @@ namespace Application.Authenticates.Dto
     public class AuthenticateDto
     {
         public int Id { get; set; }
-        public string AccountName { get; set; }
+        public string Name { get; set; }
         public string Token { get; set; }
     }
 }
