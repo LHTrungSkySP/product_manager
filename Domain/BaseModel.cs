@@ -11,7 +11,7 @@ namespace Domain
         public int Id { get; set; }
         public DateTime CreatesdDate { get; set; } = new DateTime();
         public DateTime UpdatesdDate { get; set;} = new DateTime();
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
     }
 }
