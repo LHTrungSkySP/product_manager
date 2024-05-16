@@ -13,17 +13,17 @@ using System.Threading.Tasks;
 
 namespace Application.AATemp.CommandHandlers
 {
-    public class UpdatePermissionCommandHandler: IRequestHandler<CreateTempCommand, TempDto>
+    public class CreateAssignPermissionCommandHandler : IRequestHandler<CreateTempCommand, TempDto>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
 
-        public UpdatePermissionCommandHandler(BanHangContext context, IMapper mapper)
+        public CreateAssignPermissionCommandHandler(BanHangContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
-        public async Task<TempDto> Handle(CreateTempCommand request, CancellationToken cancellationToken)
+        public async Task<AccountDto> Handle(CreateTempCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

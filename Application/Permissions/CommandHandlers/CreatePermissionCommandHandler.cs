@@ -42,6 +42,8 @@ namespace Application.Permissions.CommandHandlers
             Permission permission = new Permission();
             permission.Title = request.Title;
             permission.Description = request.Description;
+            permission.AssignPermissions = request.AssignPermissions;
+
             _context.Permissions.Add(permission);
             _context.SaveChanges();
             return _mapper.Map<PermissionDto>(permission);

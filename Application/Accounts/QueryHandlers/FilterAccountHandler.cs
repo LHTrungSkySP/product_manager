@@ -9,19 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Accounts.QueryHandler
+namespace Application.Accounts.QueryHandlers
 {
-    public class GetAllHandler : IRequestHandler<GetAll, List<AccountDto>>
+    public class FilterAccountHandler : IRequestHandler<FilterAccount, List<AccountDto>>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
 
-        public GetAllHandler(BanHangContext context, IMapper mapper)
+        public FilterAccountHandler(BanHangContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
-        public async Task<List<AccountDto>> Handle(GetAll request, CancellationToken cancellationToken)
+        public async Task<List<AccountDto>> Handle(FilterAccount request, CancellationToken cancellationToken)
         {
             return _mapper.Map<List<AccountDto>>(_context.Accounts);
         }

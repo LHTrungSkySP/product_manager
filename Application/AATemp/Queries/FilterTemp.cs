@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.AATemp.Commands
+namespace Application.AATemp.Queries
 {
-    public class UpdateTempCommand : IRequest<TempDto>
+    public class FilterTemp : IRequest<List<TempDto>>
     {
 
     }

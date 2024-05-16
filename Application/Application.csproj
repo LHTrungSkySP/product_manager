@@ -19,11 +19,4 @@
     <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Permissions\Queries\" />
-    <Folder Include="Permissions\QueryHandlers\" />
-    <Folder Include="AATemp\QueryHandlers\" />
-    <Folder Include="AATemp\Queries\" />
-  </ItemGroup>
-
 </Project>

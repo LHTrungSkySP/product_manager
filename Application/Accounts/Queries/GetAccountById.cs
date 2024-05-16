@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Accounts.Commands
+namespace Application.Accounts.Queries
 {
-    public class DeleteAccountCommand : IRequest<AccountDto>
+    public class GetAccountById : IRequest<AccountDto>
     {
         public int Id { get; set; }
     }

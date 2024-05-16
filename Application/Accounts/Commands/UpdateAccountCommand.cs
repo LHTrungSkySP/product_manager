@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace Application.Accounts.Commands
 {
-    public class UpdateAccountCommand : IRequest<AccountDto>
+    public class UpdateAccountCommand : AccountDto, IRequest<AccountDto>
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
         public string Password { get; set; }
     }
 }

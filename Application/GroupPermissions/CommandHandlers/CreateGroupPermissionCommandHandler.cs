@@ -1,5 +1,5 @@
-﻿using Application.AATemp.Commands;
-using Application.AATemp.Dto;
+﻿using Application.GroupPermissions.Commands;
+using Application.GroupPermissions.Dto;
 using Application.Accounts.Commands;
 using Application.Accounts.Dto;
 using AutoMapper;
@@ -11,19 +11,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.AATemp.CommandHandlers
+namespace Application.GroupPermissions.CommandHandlers
 {
-    public class UpdateAssignPermissionCommandHandler : IRequestHandler<UpdateTempCommand, TempDto>
+    public class CreateGroupPermissionCommandHandler : IRequestHandler<CreateGroupPermissionCommand, GroupPermissionDto>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
 
-        public UpdateAssignPermissionCommandHandler(BanHangContext context, IMapper mapper)
+        public CreateGroupPermissionCommandHandler(BanHangContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
-        public Task<TempDto> Handle(UpdateTempCommand request, CancellationToken cancellationToken)
+        public async Task<GroupPermissionDto> Handle(CreateGroupPermissionCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

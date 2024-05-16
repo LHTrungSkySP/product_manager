@@ -1,4 +1,4 @@
-﻿using Application.Accounts.Dto;
+﻿using Application.Permissions.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Accounts.Queries
+namespace Application.Permissions.Queries
 {
-    public class GetById : IRequest<AccountDto>
+    public class GetPermissionById : IRequest<PermissionDto>
     {
         public int Id { get; set; }
     }

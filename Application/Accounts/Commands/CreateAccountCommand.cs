@@ -1,5 +1,4 @@
 ﻿using Application.Accounts.Dto;
-using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;

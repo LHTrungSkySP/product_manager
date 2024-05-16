@@ -2,6 +2,7 @@
 using Application.Accounts.Dto;
 using Application.Authenticates.Dto;
 using Application.Authenticates.Queries;
+using Application.Permissions.Dto;
 using AutoMapper;
 using Domain.Entities;
 
@@ -12,6 +13,7 @@ namespace Application.Common.Mapping
         public AutoMapperProfile()
         {
             CreateMap<Account, AccountDto>();
+            //CreateMap<Permission, PermissionDto>();
 
             // Account -> AuthenticateDto 
             CreateMap<AccountDto, AuthenticateDto>();

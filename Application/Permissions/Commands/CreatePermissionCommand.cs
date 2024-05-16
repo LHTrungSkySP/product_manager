@@ -1,4 +1,5 @@
 ﻿using Application.Permissions.Dto;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace Application.Permissions.Commands
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public virtual List<int> AssignPermissionIds { get; set; } = new List<int>();
     }
 }

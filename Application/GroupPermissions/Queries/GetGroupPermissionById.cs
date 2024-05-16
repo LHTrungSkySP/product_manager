@@ -1,4 +1,4 @@
-﻿using Application.Accounts.Dto;
+﻿using Application.GroupPermissions.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Accounts.Commands
+namespace Application.GroupPermissions.Queries
 {
-    public class DeleteAccountCommand : IRequest<AccountDto>
+    public class GetGroupPermissionById : IRequest<GroupPermissionDto>
     {
         public int Id { get; set; }
     }

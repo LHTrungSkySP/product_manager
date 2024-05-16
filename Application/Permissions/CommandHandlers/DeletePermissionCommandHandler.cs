@@ -25,7 +25,7 @@ namespace Application.Permissions.CommandHandlers
             _context = context;
             _mapper = mapper;
         }
-        public async Task<PermissionDto> Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
         {
             Permission permission = _context.Permissions.Find(request.Id) ??
                 throw new AppException(

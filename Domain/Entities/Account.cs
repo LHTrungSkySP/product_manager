@@ -8,6 +8,7 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
         public string PasswordHash { get; set; }
+        public virtual List<AssignGroup> AssignGroups { get; set; } = new List<AssignGroup>();
 
     }
 }
