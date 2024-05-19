@@ -1,4 +1,5 @@
 ﻿using Application.Accounts.Dto;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Application.Accounts.Commands
 {
     public class UpdateAccountCommand : AccountDto, IRequest<AccountDto>
     {
-        public string Password { get; set; }
+        public string PasswordNew { get; set; }
+        public string PasswordOld { get; set; }
+        public List<AssignGroup> AssignGroups { get; set; } = new List<AssignGroup>();
     }
 }

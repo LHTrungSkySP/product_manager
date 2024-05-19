@@ -12,5 +12,7 @@ namespace Application.GroupPermissions.Commands
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public virtual List<int>? AssignGroupIds { get; set; } = new List<int>();
+        public virtual List<int>? AssignPermissionIds { get; set; } = new List<int>();
     }
 }

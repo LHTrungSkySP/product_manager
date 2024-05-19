@@ -3,6 +3,7 @@ using Application.GroupPermissions.Queries;
 using AutoMapper;
 using Infrastructure;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Application.GroupPermissions.QueryHandlers
         }
         public async Task<GroupPermissionDto> Handle(GetGroupPermissionById request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<GroupPermissionDto>(_context.GroupPermissions.Find(request.Id));
+            return _mapper.Map<GroupPermissionDto>(_context.GroupPermissions.Where(e => e.Id == request.Id).Include(x =>x.AssignPermissions).FirstOrDefault());
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using Application.Accounts.QueryHandler;
+﻿
 using Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Utility.Authorizations;
 
 namespace Web.API.Middlewares

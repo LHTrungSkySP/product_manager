@@ -1,8 +1,9 @@
-using Infrastructure;
+﻿using Infrastructure;
 using Microsoft.OpenApi.Models;
 using Application;
 using Web.API.Middlewares;
 using Web.API;
+using System.Text.Json.Serialization;
 
 namespace WebAPI
 {
@@ -14,6 +15,7 @@ namespace WebAPI
 
  
             builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
             builder.Services
                 .AddInfrastructure()
                 .AddApplication()

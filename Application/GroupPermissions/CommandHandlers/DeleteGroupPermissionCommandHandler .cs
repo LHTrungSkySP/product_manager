@@ -22,7 +22,7 @@ namespace Application.GroupPermissions.CommandHandlers
         {
             GroupPermission? groupPermission = _context.GroupPermissions.Find(request.Id, cancellationToken) ?? throw new AppException(
                 ExceptionCode.Notfound,
-                "Không tìm thấy Permission "
+                "Không tìm thấy GroupPermission "
                 );
             _context.GroupPermissions.Remove(groupPermission);
             _context.SaveChanges();

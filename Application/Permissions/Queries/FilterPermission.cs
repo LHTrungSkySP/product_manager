@@ -10,6 +10,6 @@ namespace Application.Permissions.Queries
 {
     public class FilterPermission : IRequest<List<PermissionDto>>
     {
-
+        public string? Keyword { get; set; }
     }
 }

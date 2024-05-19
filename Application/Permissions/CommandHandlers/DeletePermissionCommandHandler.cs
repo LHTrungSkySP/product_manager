@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Application.Permissions.CommandHandlers
 {
-    public class DeletePermissionCommandHandler : IRequestHandler<DeletePermissionCommand>
+    public class DeletePermissionCommandHandler : IRequestHandler<DeletePermissionCommand,PermissionDto>
     {
         private BanHangContext _context;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace Application.Permissions.CommandHandlers
             _context = context;
             _mapper = mapper;
         }
-        public async Task Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
+        public async Task<PermissionDto> Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
         {
             Permission permission = _context.Permissions.Find(request.Id) ??
                 throw new AppException(

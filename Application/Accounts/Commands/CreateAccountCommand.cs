@@ -1,4 +1,5 @@
 ﻿using Application.Accounts.Dto;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace Application.Accounts.Commands
     {
         public string Name { get; set; }
         public string Password { get; set; }
+        public List<int>? groupPermissionId { get; set; } = new List<int>();
     }
 }

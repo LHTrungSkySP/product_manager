@@ -42,7 +42,11 @@ namespace Application.Permissions.CommandHandlers
             Permission permission = new Permission();
             permission.Title = request.Title;
             permission.Description = request.Description;
-            permission.AssignPermissions = request.AssignPermissions;
+            permission.AssignPermissions = request.GroupPermissionIds.Select(t => new AssignPermission()
+            {
+                PermissionId = permission.Id,
+                GroupPermissionId = t
+            }).ToList();
 
             _context.Permissions.Add(permission);
             _context.SaveChanges();

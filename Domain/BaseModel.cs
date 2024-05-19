@@ -9,9 +9,13 @@ namespace Domain
     public abstract class BaseModel
     {
         public int Id { get; set; }
-        public DateTime CreatesdDate { get; set; } = new DateTime();
-        public DateTime UpdatesdDate { get; set;} = new DateTime();
-        public bool IsDeleted { get; set; } = false;
-
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set;}
+        public bool IsDeleted { get; set; }
+        public void DeleteMe()
+        {
+            IsDeleted = true;
+            UpdatedDate = DateTime.UtcNow;
+        }
     }
 }

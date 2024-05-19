@@ -30,11 +30,22 @@ namespace Application.GroupPermissions.CommandHandlers
             // find item need update
             GroupPermission groupPermission = _context.GroupPermissions.Find(request.Id, cancellationToken) ?? throw new AppException(
                 ExceptionCode.Notfound,
-                "Không tìm thấy Permission "
+                "Không tìm thấy GroupPermission"
                 );
             groupPermission.Title = request.Title;
             groupPermission.Description = request.Description;
-            groupPermission.UpdatesdDate = new DateTime();
+            groupPermission.AssignPermissions = request.AssignPermissionIds.Select(t => new AssignPermission()
+            {
+                PermissionId = t,
+                GroupPermissionId = groupPermission.Id
+            }).ToList();
+
+            groupPermission.AssignGroups = request.AssignGroupIds.Select(t => new AssignGroup()
+            {
+                AccountId = t,
+                GroupPermissionId = groupPermission.Id
+            }).ToList();
+
             _context.GroupPermissions.Update(groupPermission);
             _context.SaveChanges();
             return _mapper.Map<GroupPermissionDto>(groupPermission);

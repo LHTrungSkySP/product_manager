@@ -23,7 +23,8 @@ namespace Application.Permissions.QueryHandlers
         }
         public async Task<List<PermissionDto>> Handle(FilterPermission request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<List<PermissionDto>>(_context.Permissions);
+            var result = _mapper.Map<List<PermissionDto>>(_context.Permissions);
+            return result;
         }
     }
 }

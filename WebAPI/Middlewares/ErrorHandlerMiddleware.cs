@@ -28,19 +28,27 @@ namespace Web.API.Middlewares
                     case AppException e:
                         // custom application error
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        var result = JsonSerializer.Serialize(new
+                        {
+                            Code = e.Code,
+                            Errors = e.Errors,
+                            ErrorsDetail = e.ErrorDetails
+                        });
+                        await response.WriteAsync(result);
                         break;
                     case KeyNotFoundException e:
                         // not found error
                         response.StatusCode = (int)HttpStatusCode.NotFound;
+                        await response.WriteAsync(JsonSerializer.Serialize(new { message = error?.Message }));
                         break;
                     default:
                         // unhandled error
                         response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        await response.WriteAsync(JsonSerializer.Serialize(new { message = error?.Message }));
                         break;
                 }
 
-                var result = JsonSerializer.Serialize(new { message = error?.Message });
-                await response.WriteAsync(result);
+
             }
         }
     }

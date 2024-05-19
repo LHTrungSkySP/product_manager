@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Utility.Authorizations;
 using Utility.FileLog;
-
 namespace Application
 {
     public static class ConfigureServices

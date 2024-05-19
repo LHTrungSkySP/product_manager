@@ -1,38 +1,41 @@
 ﻿using Application.Accounts.Commands;
 using Application.Accounts.Queries;
+using Application.Accounts.Commands;
+using Application.Accounts.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Web.API.Atributes;
+using Application.Accounts.Dto;
 
 namespace Web.API.Controllers
 {
+    [AllowAnonymous]
     public class AccountsController : ApiControllerBase
     {
-        [AllowAnonymous]
         [HttpPost()]
-        public async Task<IActionResult> Create(CreateAccountCommand registerRequest)
+        public async Task<ActionResult<AccountDto>> Create(CreateAccountCommand registerRequest)
         {
-            return Ok(await Mediator.Send(registerRequest));
+            return await Mediator.Send(registerRequest);
         }
-        [HttpGet("get-list")]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("filter")]
+        public async Task<ActionResult<List<AccountDto>>> GetAll([FromQuery] FilterAccount data)
         {
-            return Ok(await Mediator.Send(new GetAll()));
+            return await Mediator.Send(data);
         }
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateAccountCommand updateRequest)
+        public async Task<ActionResult<AccountDto>> Update(UpdateAccountCommand updateRequest)
         {
-            return Ok(await Mediator.Send(updateRequest));
+            return await Mediator.Send(updateRequest);
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteAccountCommand deleteAccountCommand)
+        public async Task<ActionResult<AccountDto>> Delete([FromQuery] DeleteAccountCommand deleteAccountCommand)
         {
-            return Ok(await Mediator.Send(deleteAccountCommand));
+            return await Mediator.Send(deleteAccountCommand);
         }
         [HttpGet("get-by-id")]
-        public async Task<IActionResult> Get([FromQuery] GetById getById)
+        public async Task<ActionResult<AccountDto>> Get([FromQuery] GetAccountById getById)
         {
-            return Ok(await Mediator.Send(getById));
+            return await Mediator.Send(getById);
         }
 
     }

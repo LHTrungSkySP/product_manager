@@ -3,6 +3,7 @@ using Application.Permissions.Queries;
 using AutoMapper;
 using Infrastructure;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,9 @@ namespace Application.Permissions.QueryHandlers
         }
         public async Task<PermissionDto> Handle(GetPermissionById request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<PermissionDto>(_context.Permissions.Find(request.Id));
+            var tam1 = _context.Permissions.Where(e => e.Id == request.Id).Include(e => e.AssignPermissions).FirstOrDefault();
+            var tam = _mapper.Map<PermissionDto>(tam1);
+            return tam;
         }
     }
 }

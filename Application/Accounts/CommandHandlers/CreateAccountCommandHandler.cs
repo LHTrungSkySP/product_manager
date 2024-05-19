@@ -1,17 +1,11 @@
 ﻿using Application.Accounts.Commands;
 using Application.Accounts.Dto;
-using Application.Accounts.Commands;
-using Application.Accounts.Dto;
 using AutoMapper;
-using Infrastructure;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Common.Exceptions;
 using Domain.Entities;
+using Infrastructure;
+using MediatR;
+using Microsoft.Identity.Client;
 
 namespace Application.Accounts.CommandHandlers
 {
@@ -27,7 +21,9 @@ namespace Application.Accounts.CommandHandlers
         }
         public async Task<AccountDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
-            Account account = _context.Accounts.Find(request.Name) ?? throw new AppException(
+            if (_context.Accounts.Any(ele => ele.Name == request.Name))
+            {
+                throw new AppException(
                     ExceptionCode.Duplicate,
                     "Đã tồn tại Account " + request.Name,
                                         new[] {
@@ -36,8 +32,15 @@ namespace Application.Accounts.CommandHandlers
                             request.Name)
                     }
                     );
+            }
+            Account account = new Account();
             account.Name = request.Name;
             account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+            account.AssignGroup = request.groupPermissionId.Select(t => new AssignGroup()
+            {
+                AccountId = account.Id,
+                GroupPermissionId = t
+            }).ToList();
             _context.Accounts.Add(account);
             _context.SaveChanges();
             return _mapper.Map<AccountDto>(account);

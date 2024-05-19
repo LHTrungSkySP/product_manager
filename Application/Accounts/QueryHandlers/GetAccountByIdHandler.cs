@@ -5,6 +5,7 @@ using Common.Exceptions;
 using Domain.Entities;
 using Infrastructure;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Application.Accounts.QueryHandlers
         }
         public async Task<AccountDto> Handle(GetAccountById request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<AccountDto>(_context.Accounts.Find(request.Id));
+            return _mapper.Map<AccountDto>(_context.Accounts.Where(x => x.Id == request.Id).Include(x => x.AssignGroup));
         }
     }
 }

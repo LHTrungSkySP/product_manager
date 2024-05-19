@@ -1,5 +1,5 @@
-﻿using Infrastructure;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 namespace Web.API
 {

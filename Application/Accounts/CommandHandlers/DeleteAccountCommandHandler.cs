@@ -23,9 +23,9 @@ namespace Application.Accounts.CommandHandlers
         {
             Account account = _context.Accounts.Find(request.Id) ?? throw new AppException(
                 ExceptionCode.Notfound,
-                "Không tìm thấy Account " + request.Name,
+                "Không tìm thấy Account " + request.Id,
                 new[] {
-                    new ErrorDetail(nameof(request.Name),request.Name)
+                    new ErrorDetail(nameof(request.Id),request.Id)
                 }
             );
             _context.Accounts.Remove(account);

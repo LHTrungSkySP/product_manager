@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using System.Text.Json.Serialization;
 
 namespace Domain.Entities
 {
@@ -11,7 +8,7 @@ namespace Domain.Entities
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public virtual List<AssignPermission> AssignPermissions { get; set; } = new List<AssignPermission>();
-
+        [JsonIgnore]
+        public List<AssignPermission> AssignPermissions = new List<AssignPermission>();
     }
 }

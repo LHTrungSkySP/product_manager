@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using System.Xml.Linq;
+﻿
 
 namespace Domain.Entities
 {
@@ -8,7 +6,6 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
         public string PasswordHash { get; set; }
-        public virtual List<AssignGroup> AssignGroups { get; set; } = new List<AssignGroup>();
-
+        public virtual List<AssignGroup>? AssignGroup { get; set; } = new List<AssignGroup>();
     }
 }
