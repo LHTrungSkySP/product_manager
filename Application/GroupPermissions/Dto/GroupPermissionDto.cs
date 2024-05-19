@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Application.GroupPermissions.Dto
@@ -13,7 +14,10 @@ namespace Application.GroupPermissions.Dto
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public virtual List<AssignGroup>? AssignGroups { get; set; } = new List<AssignGroup>();
-        public virtual List<AssignPermission>? AssignPermissions { get; set; } = new List<AssignPermission>();
+        [JsonIgnore]
+        public virtual List<AccountDto>? Accounts { get; set; } = new List<AccountDto>();
+        [JsonIgnore]
+
+        public virtual List<PermissionDto>? Permissions { get; set; } = new List<PermissionDto>();
     }
 }

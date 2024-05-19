@@ -4,6 +4,7 @@ using Application;
 using Web.API.Middlewares;
 using Web.API;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebAPI
 {
@@ -20,7 +21,6 @@ namespace WebAPI
                 .AddInfrastructure()
                 .AddApplication()
                 .AddWebAPI(builder.Logging);
-
             var app = builder.Build();           
 
             // Configure the HTTP request pipeline.
@@ -29,7 +29,6 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            // middle set up
             // global error handler
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseMiddleware<JwtMiddleware>();

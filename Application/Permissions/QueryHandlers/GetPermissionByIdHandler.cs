@@ -24,7 +24,7 @@ namespace Application.Permissions.QueryHandlers
         }
         public async Task<PermissionDto> Handle(GetPermissionById request, CancellationToken cancellationToken)
         {
-            var tam1 = _context.Permissions.Where(e => e.Id == request.Id).Include(e => e.AssignPermissions).FirstOrDefault();
+            var tam1 = _context.Permissions.Where(e => e.Id == request.Id).Include(e => e.AssignPermissions).ThenInclude(ap => ap.GroupPermission).FirstOrDefault();
             var tam = _mapper.Map<PermissionDto>(tam1);
             return tam;
         }

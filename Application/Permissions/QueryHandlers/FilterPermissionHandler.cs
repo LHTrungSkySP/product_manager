@@ -3,11 +3,7 @@ using Application.Permissions.Queries;
 using AutoMapper;
 using Infrastructure;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Permissions.QueryHandlers
 {
@@ -23,7 +19,11 @@ namespace Application.Permissions.QueryHandlers
         }
         public async Task<List<PermissionDto>> Handle(FilterPermission request, CancellationToken cancellationToken)
         {
-            var result = _mapper.Map<List<PermissionDto>>(_context.Permissions);
+            var permissions = await _context.Permissions
+                .Include(p => p.AssignPermissions)
+                    .ThenInclude(ap => ap.GroupPermission)
+                .ToListAsync();
+            var result = _mapper.Map<List<PermissionDto>>(permissions);
             return result;
         }
     }

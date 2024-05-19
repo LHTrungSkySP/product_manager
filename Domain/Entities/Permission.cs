@@ -9,6 +9,6 @@ namespace Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         [JsonIgnore]
-        public List<AssignPermission> AssignPermissions = new List<AssignPermission>();
+        public virtual List<AssignPermission> AssignPermissions { set; get; } = new List<AssignPermission>();
     }
 }

@@ -4,12 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Application.Permissions.Dto
+namespace Application.GroupPermissions.Dto
 {
-    public class GroupPermissionDto : IMapFrom<GroupPermission>
+    public class PermissionDto : IMapFrom<Permission>
     {
         public int Id { get; set; }
         public string Title { get; set; }
