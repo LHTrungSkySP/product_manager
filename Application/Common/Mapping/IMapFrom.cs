@@ -15,16 +15,16 @@ namespace Application.Common.Mapping
                         src.AssignPermissions.Select(ap => ap.GroupPermission).ToList()
                     ));
             }
-            else if (typeof(T) == typeof(GroupPermission))
-            {
-                profile.CreateMap<GroupPermission, GroupPermissions.Dto.GroupPermissionDto>()
-                    .ForMember(dest => dest.Permissions, opt => opt.MapFrom(src =>
-                        src.AssignPermissions.Select(ap => ap.Permission).ToList()
-                    ))
-                    .ForMember(dest => dest.Accounts, opt => opt.MapFrom(src =>
-                        src.AssignGroups.Select(ap => ap.GroupPermission).ToList()
-                    ));
-            }
+            //else if (typeof(T) == typeof(GroupPermission))
+            //{
+            //    profile.CreateMap<GroupPermission, GroupPermissions.Dto.GroupPermissionDto>()
+            //        .ForMember(dest => dest.Permissions, opt => opt.MapFrom(src =>
+            //            src.AssignPermissions.Select(ap => ap.Permission).ToList()
+            //        ))
+            //        .ForMember(dest => dest.Accounts, opt => opt.MapFrom(src =>
+            //            src.AssignGroups.Select(ap => ap.GroupPermission).ToList()
+            //        ));
+            //}
             else
             {
                 profile.CreateMap(typeof(T), GetType());

@@ -22,9 +22,9 @@ namespace Application.Permissions.QueryHandlers
             var permissions = await _context.Permissions
                 .Include(p => p.AssignPermissions)
                     .ThenInclude(ap => ap.GroupPermission)
-                .ToListAsync();
-            var result = _mapper.Map<List<PermissionDto>>(permissions);
-            return result;
+                .ToListAsync(cancellationToken);
+
+            return _mapper.Map<List<PermissionDto>>(permissions);
         }
     }
 }

@@ -1,14 +1,10 @@
 ﻿using Application.Permissions.Dto;
 using Application.Permissions.Queries;
 using AutoMapper;
+using Common.Exceptions;
 using Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Permissions.QueryHandlers
 {
@@ -24,9 +20,17 @@ namespace Application.Permissions.QueryHandlers
         }
         public async Task<PermissionDto> Handle(GetPermissionById request, CancellationToken cancellationToken)
         {
-            var tam1 = _context.Permissions.Where(e => e.Id == request.Id).Include(e => e.AssignPermissions).ThenInclude(ap => ap.GroupPermission).FirstOrDefault();
-            var tam = _mapper.Map<PermissionDto>(tam1);
-            return tam;
+            var permission = await _context.Permissions
+                .Include(p => p.AssignPermissions)
+                    .ThenInclude(ap => ap.GroupPermission)
+                .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+
+            if (permission == null)
+            {
+                throw new AppException(ExceptionCode.Notfound, "Không tìm thấy Permission");
+            }
+
+            return _mapper.Map<PermissionDto>(permission);
         }
     }
 }

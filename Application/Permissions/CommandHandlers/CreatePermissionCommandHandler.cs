@@ -1,6 +1,4 @@
-﻿using Application.Accounts.Commands;
-using Application.Accounts.Dto;
-using Application.Permissions.Commands;
+﻿using Application.Permissions.Commands;
 using Application.Permissions.Dto;
 using AutoMapper;
 using Common.Exceptions;
@@ -44,12 +42,11 @@ namespace Application.Permissions.CommandHandlers
             permission.Description = request.Description;
             permission.AssignPermissions = request.GroupPermissionIds.Select(t => new AssignPermission()
             {
-                PermissionId = permission.Id,
                 GroupPermissionId = t
             }).ToList();
 
             _context.Permissions.Add(permission);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
             return _mapper.Map<PermissionDto>(permission);
         }
     }

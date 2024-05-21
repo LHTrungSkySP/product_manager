@@ -5,6 +5,7 @@ using Common.Exceptions;
 using Domain.Entities;
 using Infrastructure;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Permissions.CommandHandlers
 {
@@ -20,26 +21,25 @@ namespace Application.Permissions.CommandHandlers
         }
         public async Task<PermissionDto> Handle(UpdatePermissionCommand request, CancellationToken cancellationToken)
         {
-            Permission permission = _context.Permissions.Find(request.Id) ??
-                throw new AppException(
-                    ExceptionCode.Notfound,
-                    "Không tìm thấy Permission " + request.Title,
-                                        new[] {
-                        new ErrorDetail(
-                            nameof(request.Title),
-                            request.Title)
-                    }
-                    );
+            Permission? permission = await _context.Permissions
+                .Include(p => p.AssignPermissions)
+                .FirstOrDefaultAsync(p => p.Id == request.Id);
+
+            if (permission == null)
+            {
+                throw new AppException(ExceptionCode.Notfound, $"Không tìm thấy Permission {request.Title}",
+                    new[] { new ErrorDetail(nameof(request.Title), request.Title) });
+            }
             permission.Title = request.Title;
             permission.Description = request.Description;
             permission.AssignPermissions = request.GroupPermissionIds.Select(item => new AssignPermission()
             {
-                PermissionId = permission.Id,
+                PermissionId = request.Id,
                 GroupPermissionId = item
             }).ToList();
-
             _context.Permissions.Update(permission);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
+
             return _mapper.Map<PermissionDto>(permission);
         }
     }

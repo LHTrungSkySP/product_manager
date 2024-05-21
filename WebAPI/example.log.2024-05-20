@@ -1,0 +1,328 @@
+2024-05-20 01:05:07,563  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:05:07,604  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:05:07,605  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:09:40,858  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:09:40,887  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:09:40,887  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:10:06,242  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:10:06,275  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:10:06,275  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:10:06,628 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.PermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.Permissions.Dto.PermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$GroupPermissionDto" for type "$Application.Permissions.Dto.GroupPermissionDto". The same schemaId is already used for type "$Application.GroupPermissions.Dto.GroupPermissionDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:10:52,560  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:10:52,596  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:10:52,596  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:10:52,922 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.PermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.Permissions.Dto.PermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$GroupPermissionDto" for type "$Application.Permissions.Dto.GroupPermissionDto". The same schemaId is already used for type "$Application.GroupPermissions.Dto.GroupPermissionDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:11:20,996  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:11:21,030  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:11:21,030  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:11:21,335 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.PermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.Permissions.Dto.PermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$GroupPermissionDto" for type "$Application.Permissions.Dto.GroupPermissionDto". The same schemaId is already used for type "$Application.GroupPermissions.Dto.GroupPermissionDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:12:11,137  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:12:11,169  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:12:11,169  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:13:39,221  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:13:39,257  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:13:39,257  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:13:39,572 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.PermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.Permissions.Dto.PermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$GroupPermissionDto" for type "$Application.Permissions.Dto.GroupPermissionDto". The same schemaId is already used for type "$Application.GroupPermissions.Dto.GroupPermissionDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:14:21,723  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:14:21,755  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:14:21,755  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:14:46,014  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:14:46,048  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:14:46,048  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:14:46,343 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.GroupPermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.GroupPermissions.Dto.GroupPermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$AccountDto" for type "$Application.GroupPermissions.Dto.AccountDto". The same schemaId is already used for type "$Application.Accounts.Dto.AccountDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:15:11,264  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:15:11,294  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:15:11,294  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:15:11,578 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.GroupPermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.GroupPermissions.Dto.GroupPermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$AccountDto" for type "$Application.GroupPermissions.Dto.AccountDto". The same schemaId is already used for type "$Application.Accounts.Dto.AccountDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:15:44,911  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:15:44,946  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:15:44,946  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:15:45,244 ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Web.API.Controllers.GroupPermissionsController.Create (Web.API). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Application.GroupPermissions.Dto.GroupPermissionDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$AccountDto" for type "$Application.GroupPermissions.Dto.AccountDto". The same schemaId is already used for type "$Application.Accounts.Dto.AccountDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateArraySchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__1()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForMember(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, DataProperty dataProperty)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.CreateObjectSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.<>c__DisplayClass10_0.<GenerateConcreteSchema>b__3()
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForType(Type modelType, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreateResponseMediaType(ModelMetadata modelMetadata, SchemaRepository schemaRespository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.<>c__DisplayClass25_0.<GenerateResponse>b__2(String contentType)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponse(ApiDescription apiDescription, SchemaRepository schemaRepository, String statusCode, ApiResponseType apiResponseType)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateResponses(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperation(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-20 01:15:56,372  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:15:56,402  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:15:56,403  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+ 2024-05-20 01:17:09,432  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 01:17:09,465  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 01:17:09,465  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\desktop\demo_CQRS_pattern\WebAPI
+<<<<<<< Updated upstream
+=======
+ 2024-05-20 18:03:53,240  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 18:03:53,278  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 18:03:53,278  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 2024-05-20 18:08:17,715  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-05-20 18:08:17,734  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-05-20 18:08:17,735  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 18:08:17,736  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 18:08:17,736  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 2024-05-20 18:08:33,963  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 18:08:33,984  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 18:08:33,984  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 2024-05-20 18:08:40,638  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7072
+ 2024-05-20 18:08:40,657  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5217
+ 2024-05-20 18:08:40,658  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 18:08:40,660  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 18:08:40,660  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+>>>>>>> Stashed changes
+ 2024-05-20 18:09:27,463  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-20 18:09:27,487  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-20 18:09:27,487  INFO Microsoft.Hosting.Lifetime.RunInternal [0] - MESSAGE: Content root path: D:\demo_CQRS_pattern\WebAPI
+ 

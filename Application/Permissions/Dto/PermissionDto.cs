@@ -9,7 +9,6 @@ namespace Application.Permissions.Dto
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        [JsonIgnore]
-        public virtual List<GroupPermissionDto> GroupPermissions { get; set; } = new List<GroupPermissionDto>();
+        public List<GroupPermissionDto> GroupPermissions { get; set; } = new List<GroupPermissionDto>();
     }
 }

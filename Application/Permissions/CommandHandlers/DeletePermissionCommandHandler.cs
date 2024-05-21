@@ -1,6 +1,4 @@
-﻿using Application.Accounts.Commands;
-using Application.Accounts.Dto;
-using Application.Permissions.Commands;
+﻿using Application.Permissions.Commands;
 using Application.Permissions.Dto;
 using AutoMapper;
 using Common.Exceptions;
@@ -27,13 +25,15 @@ namespace Application.Permissions.CommandHandlers
         }
         public async Task<PermissionDto> Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
         {
-            Permission permission = _context.Permissions.Find(request.Id) ??
-                throw new AppException(
-                    ExceptionCode.Notfound,
-                    "Không tìm thấy Permission "
-                    );
+            var permission = await _context.Permissions.FindAsync(request.Id);
+            if (permission == null)
+            {
+                throw new AppException(ExceptionCode.Notfound, "Không tìm thấy Permission");
+            }
+
             _context.Permissions.Remove(permission);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync(cancellationToken);
+
             return _mapper.Map<PermissionDto>(permission);
         }
     }

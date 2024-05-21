@@ -1,7 +1,5 @@
 ﻿using Application.AATemp.Commands;
 using Application.AATemp.Dto;
-using Application.Accounts.Commands;
-using Application.Accounts.Dto;
 using AutoMapper;
 using Infrastructure;
 using MediatR;
