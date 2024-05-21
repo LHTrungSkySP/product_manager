@@ -9,6 +9,6 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string PasswordHash { get; set; }
         [JsonIgnore]
-        public virtual List<AssignGroup>? AssignGroup { get; set; } = new List<AssignGroup>();
+        public virtual List<AssignGroup> AssignGroup { get; set; } = new List<AssignGroup>();
     }
 }

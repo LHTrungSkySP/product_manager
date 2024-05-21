@@ -8,13 +8,13 @@ namespace Application.Common.Mapping
     {
         void Mapping(Profile profile)
         {
-            if (typeof(T) == typeof(Permission))
-            {
-                profile.CreateMap<Permission, Permissions.Dto.PermissionDto>()
-                    .ForMember(dest => dest.GroupPermissions, opt => opt.MapFrom(src =>
-                        src.AssignPermissions.Select(ap => ap.GroupPermission).ToList()
-                    ));
-            }
+            //if (typeof(T) == typeof(Permission))
+            //{
+            //    profile.CreateMap<Permission, Permissions.Dto.PermissionDto>()
+            //        .ForMember(dest => dest.GroupPermissions, opt => opt.MapFrom(src =>
+            //            src.AssignPermissions.Select(ap => ap.GroupPermission).ToList()
+            //        ));
+            //}
             //else if (typeof(T) == typeof(GroupPermission))
             //{
             //    profile.CreateMap<GroupPermission, GroupPermissions.Dto.GroupPermissionDto>()
@@ -25,10 +25,17 @@ namespace Application.Common.Mapping
             //            src.AssignGroups.Select(ap => ap.GroupPermission).ToList()
             //        ));
             //}
-            else
+            //else
+            //{
+            //    profile.CreateMap(typeof(T), GetType());
+            //}
+            profile.CreateMap(typeof(T), GetType()).ForAllMembers(opts =>
             {
-                profile.CreateMap(typeof(T), GetType());
-            }
+                opts.Condition((src, dest, srcMember) =>
+                {
+                    return srcMember != null;
+                });
+            });
         }
     }
 }

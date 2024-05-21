@@ -1,4 +1,4 @@
-﻿using Application.AATemp.Dto;
+﻿using Application.GroupPermissions.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.AATemp.Commands
+namespace Application.GroupPermissions.Queries
 {
-    public class DeleteTempCommand : IRequest<TempDto>
+    public class GetGroupPermissionById : IRequest<GroupPermissionDto>
     {
         public int Id { get; set; }
     }
 }
+
