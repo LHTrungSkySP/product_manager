@@ -25,18 +25,9 @@ namespace Utility.Authorizations
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
 
-            // Convert account information to claims
-            var claims = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimsIdentity, account.GetType().GetProperty("Id")?.GetValue(account, null)?.ToString() ?? ""),
-                new Claim("name", account.GetType().GetProperty("Name")?.GetValue(account, null)?.ToString() ?? ""),
-                new Claim("permissions", account.GetType().GetProperty("Permissions")?.GetValue(account, null)?.ToString() ?? ""),
-                // Add other claims as needed
-            });
-
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = claims,
+                Subject = new ClaimsIdentity(new[] { new Claim("id", account.GetType().GetProperty("Name")?.GetValue(account, null)?.ToString() ?? "" )}),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
