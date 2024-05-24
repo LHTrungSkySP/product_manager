@@ -9,7 +9,7 @@ namespace Utility.Authorizations
 {
     public interface IJwtUtils
     {
-        public string GenerateToken<T>(T account);
+        public string GenerateToken<T>(T primeKey);
         public int? ValidateToken(string? token);
     }
     public class JwtUtils : IJwtUtils
@@ -19,7 +19,7 @@ namespace Utility.Authorizations
         {
             _appSettings = appSettings.Value;
         }
-        public string GenerateToken<T>(T account)
+        public string GenerateToken<T>(T primeKey)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -27,7 +27,7 @@ namespace Utility.Authorizations
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", account.GetType().GetProperty("Name")?.GetValue(account, null)?.ToString() ?? "" )}),
+                Subject = new ClaimsIdentity(new[] { new Claim("id", primeKey.ToString() ?? "" )}),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
