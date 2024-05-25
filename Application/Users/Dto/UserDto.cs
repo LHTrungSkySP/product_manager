@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Authenticates.Dto
+namespace Application.Users.Dto
 {
-    public class AccountDto : IMapFrom<Account>
+    public class UserDto : IMapFrom<Account>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,7 +17,7 @@ namespace Application.Authenticates.Dto
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Account, AccountDto>()
+            profile.CreateMap<Account, UserDto>()
                 .ForMember(dest => dest.Permissions, opt => opt.MapFrom(src =>
                     src.AssignGroup
                         .SelectMany(ag => ag.GroupPermission.AssignPermissions)

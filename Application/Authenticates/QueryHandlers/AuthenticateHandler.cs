@@ -38,7 +38,7 @@ namespace Application.Authenticates.QueryHandlers
             // authentication successful
             var response = _mapper.Map<AuthenticateDto>(user);
             response.Token = _jwtUtils.GenerateToken<int>(response.Id);
-            return _mapper.Map<AuthenticateDto>(response);
+            return response;
         }
     }
 }

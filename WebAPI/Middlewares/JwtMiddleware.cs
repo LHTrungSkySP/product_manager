@@ -1,4 +1,5 @@
 ﻿
+using Common.Constants;
 using Infrastructure;
 using Utility.Authorizations;
 
@@ -17,8 +18,11 @@ namespace Web.API.Middlewares
             var userId = jwtUtils.ValidateToken(token);
             if (userId != null)
             {
+                var user = await banHangContext.Accounts.FindAsync(userId.Value);
                 // attach user to context on successful jwt validation
-                context.Items["User"] = banHangContext.Accounts.Find(userId.Value);
+                context.Items[ContextItems.UserId] = user.Id;
+                context.Items[ContextItems.Username] = user.Name;
+
             }
             await _next(context);
         }
