@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +11,15 @@ namespace Application.Services
     }
     public class UserService : IUserService
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public UserService(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
-        public string GetUserName()
-        {
-            var tam = _httpContextAccessor.HttpContext.User.Identity.Name;
-            return tam ?? "";
-        }
+        //private readonly IHttpContextAccessor _httpContextAccessor;
+        //public UserService(IHttpContextAccessor httpContextAccessor)
+        //{
+        //    _httpContextAccessor = httpContextAccessor;
+        //}
+        //public string GetUserName()
+        //{
+        //    var tam = _httpContextAccessor.HttpContext.User.Identity.Name;
+        //    return tam ?? "";
+        //}
     }
 }
