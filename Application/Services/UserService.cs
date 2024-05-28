@@ -1,16 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Users.Dto;
+using AutoMapper;
+using Common.Exceptions;
+using Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services
 {
     public interface IUserService
     {
+        public UserDto Login(int userId);
     }
     public class UserService : IUserService
     {
+        private readonly BanHangContext _context;
+        private readonly IMapper _mapper;
+
+        public UserService(BanHangContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
+        public UserDto Login(int userId)
+        {
+            var account = _context.Accounts
+            .Include(a => a.AssignGroup)
+                .ThenInclude(ag => ag.GroupPermission)
+                .ThenInclude(ass => ass.AssignPermissions)
+                .ThenInclude(per => per.Permission).Distinct()
+            .FirstOrDefault(a => a.Id == userId);
+            if (account == null)
+            {
+                throw new AppException(ExceptionCode.Notfound, "Không tìm thấy Account");
+            }
+            return _mapper.Map<UserDto>(account);
+        }
         //private readonly IHttpContextAccessor _httpContextAccessor;
         //public UserService(IHttpContextAccessor httpContextAccessor)
         //{

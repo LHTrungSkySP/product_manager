@@ -31,7 +31,7 @@ namespace Utility.Authorizations
                 Subject = new ClaimsIdentity(new[] {
                     new Claim("id", primeKey.ToString() ?? "")
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(30),
+                Expires = DateTime.UtcNow.AddMinutes(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

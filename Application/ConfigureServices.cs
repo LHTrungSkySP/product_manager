@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using Utility.Authorizations;
@@ -15,6 +16,7 @@ namespace Application
             //    .Build(); ;
             var assembly = typeof(ConfigureServices).Assembly;
             services.AddScoped<IJwtUtils, JwtUtils>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddAutoMapper(assembly);
             services.AddMediatR(configuration =>
