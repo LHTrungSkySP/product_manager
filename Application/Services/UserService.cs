@@ -8,7 +8,7 @@ namespace Application.Services
 {
     public interface IUserService
     {
-        public UserDto Login(int userId);
+        public UserDto GetPermissionOfAccount(int userId);
     }
     public class UserService : IUserService
     {
@@ -20,7 +20,7 @@ namespace Application.Services
             _context = context;
             _mapper = mapper;
         }
-        public UserDto Login(int userId)
+        public UserDto GetPermissionOfAccount(int userId)
         {
             var account = _context.Accounts
             .Include(a => a.AssignGroup)

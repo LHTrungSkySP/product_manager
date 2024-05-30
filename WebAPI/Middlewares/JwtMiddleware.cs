@@ -21,7 +21,7 @@ namespace Web.API.Middlewares
             var userId = jwtUtils.ValidateToken(token);
             if (userId != null)
             {
-                var userInfor = userService.Login((int)userId); 
+                var userInfor = userService.GetPermissionOfAccount((int)userId); 
                 // attach user to context on successful jwt validation
                 context.Items[ContextItems.UserId] = userInfor.Id;
                 context.Items[ContextItems.Username] = userInfor.Name;
