@@ -1,21 +1,18 @@
-﻿using Application.Users.Dto;
-using Common.Constants;
-using Domain.Entities;
+﻿using Common.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Web.API.Atributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    public class AuthorizeAttribute: Attribute, IAuthorizationFilter
+    public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {
-        private readonly string[] _permissions;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Permissions[] _permissions;
 
-        public AuthorizeFilter(Permissions[] permissions, IHttpContextAccessor httpContextAccessor)
+        public AuthorizeAttribute() { }
+        public AuthorizeAttribute(Permissions[] permissions)
         {
             _permissions = permissions;
-            _httpContextAccessor = httpContextAccessor;
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
@@ -26,11 +23,15 @@ namespace Web.API.Atributes
                 return;
             }
             // authorization
+            int? userId = (int?)context.HttpContext.Items[ContextItems.UserId];
             if (context.HttpContext.Items[ContextItems.UserId] == null)
             {
                 context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
                 return;
             }
+
+            //Lấy thông tin người dùng
+            //Permissions[] permissions =  context.HttpContext.Items[ContextItems.Permissions]; 
         }
     }
 }

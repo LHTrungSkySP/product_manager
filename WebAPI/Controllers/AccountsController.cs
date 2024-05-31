@@ -7,7 +7,6 @@ using Web.API.Atributes;
 
 namespace Web.API.Controllers
 {
-    [AllowAnonymous]
     public class AccountsController : ApiControllerBase
     {
         [HttpPost()]

@@ -11,6 +11,7 @@ namespace Application.Permissions.Commands
 {
     public class DeletePermissionCommand : IRequest<PermissionDto>
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
+        public int? Code { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace Domain.Entities
 {
     public class Permission : BaseModel
     {
+        public int Code { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         [JsonIgnore]

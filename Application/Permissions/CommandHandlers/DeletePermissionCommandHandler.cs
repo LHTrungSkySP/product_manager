@@ -25,12 +25,18 @@ namespace Application.Permissions.CommandHandlers
         }
         public async Task<PermissionDto> Handle(DeletePermissionCommand request, CancellationToken cancellationToken)
         {
-            var permission = await _context.Permissions.FindAsync(request.Id);
+            Permission permission = new Permission();
+            if(request.Id != null)
+            {
+                permission = await _context.Permissions.FindAsync(request.Id);
+            }
+            else if(request.Code != null) {
+                permission = await _context.Permissions.FindAsync(request.Code);
+            }
             if (permission == null)
             {
                 throw new AppException(ExceptionCode.Notfound, "Không tìm thấy Permission");
             }
-
             _context.Permissions.Remove(permission);
             await _context.SaveChangesAsync(cancellationToken);
 

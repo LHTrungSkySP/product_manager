@@ -30,8 +30,7 @@ namespace Application.Permissions.CommandHandlers
                 throw new AppException(ExceptionCode.Notfound, $"Không tìm thấy Permission {request.Title}",
                     new[] { new ErrorDetail(nameof(request.Title), request.Title) });
             }
-            permission.Title = request.Title;
-            permission.Description = request.Description;
+            permission = _mapper.Map<Permission>(request);
             permission.AssignPermissions = request.GroupPermissionIds.Select(item => new AssignPermission()
             {
                 PermissionId = request.Id,
