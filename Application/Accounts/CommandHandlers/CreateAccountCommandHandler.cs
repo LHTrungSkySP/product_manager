@@ -38,7 +38,6 @@ namespace Application.Accounts.CommandHandlers
             };
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync(cancellationToken);
-
             return _mapper.Map<AccountDto>(account);
         }
     }

@@ -43,12 +43,10 @@ namespace Application.Accounts.CommandHandlers
                     account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.PasswordNew);
                 }
             }
-            var newAssignGroups = request.GroupPermissionIds.Select(id => new AssignGroup
+            account.AssignGroup = request.GroupPermissionIds.Select(id => new AssignGroup
             {
-                AccountId = request.Id,
                 GroupPermissionId = id
             }).ToList();
-            account.AssignGroup = newAssignGroups;
             _context.Accounts.Update(account);
             await _context.SaveChangesAsync(cancellationToken);
             return _mapper.Map<AccountDto>(account);

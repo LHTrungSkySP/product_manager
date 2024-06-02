@@ -2,6 +2,7 @@
 using Application.Accounts.Dto;
 using Application.Accounts.Queries;
 using Application.GroupPermissions.Dto;
+using Common.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Web.API.Atributes;
 
@@ -14,6 +15,7 @@ namespace Web.API.Controllers
         {
             return await Mediator.Send(registerRequest);
         }
+        [Authorize(Permissions.VIEW_ACCOUNT)]
         [HttpGet("filter")]
         public async Task<ActionResult<List<Application.Accounts.Dto.AccountDto>>> GetAll([FromQuery] FilterAccount data)
         {

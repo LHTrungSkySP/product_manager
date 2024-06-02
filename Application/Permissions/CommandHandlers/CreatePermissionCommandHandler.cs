@@ -42,7 +42,6 @@ namespace Application.Permissions.CommandHandlers
             {
                 GroupPermissionId = t
             }).ToList();
-
             _context.Permissions.Add(permission);
             await _context.SaveChangesAsync(cancellationToken);
             return _mapper.Map<PermissionDto>(permission);

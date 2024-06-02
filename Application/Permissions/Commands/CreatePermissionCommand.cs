@@ -10,8 +10,8 @@ namespace Application.Permissions.Commands
     public class CreatePermissionCommand : IRequest<PermissionDto>, IMapTo<Permission>
     {
         public int? Code { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
         public List<int> GroupPermissionIds { get; set; } = new List<int>();
     }
 }

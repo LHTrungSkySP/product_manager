@@ -5,6 +5,7 @@ using Common.Exceptions;
 using Domain.Entities;
 using Infrastructure;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Application.Permissions.CommandHandlers
                 permission = await _context.Permissions.FindAsync(request.Id);
             }
             else if(request.Code != null) {
-                permission = await _context.Permissions.FindAsync(request.Code);
+                permission = await _context.Permissions.FirstOrDefaultAsync(p => p.Code == request.Code);
             }
             if (permission == null)
             {

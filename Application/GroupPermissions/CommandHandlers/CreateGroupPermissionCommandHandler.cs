@@ -21,25 +21,22 @@ namespace Application.GroupPermissions.CommandHandlers
 
         public async Task<GroupPermissionDto> Handle(CreateGroupPermissionCommand request, CancellationToken cancellationToken)
         {
+
             if (_context.GroupPermissions.Any(x => x.Title == request.Title))
             {
                 throw new AppException(ExceptionCode.Duplicate, $"Đã tồn tại GroupPermission {request.Title}",
                     new[] { new ErrorDetail(nameof(request.Title), request.Title) });
             }
+            var groupPermission = _mapper.Map<GroupPermission>(request);
 
-            var groupPermission = new GroupPermission
+            groupPermission.AssignPermissions = request.PermissionIds.Select(id => new AssignPermission
             {
-                Title = request.Title,
-                Description = request.Description,
-                AssignPermissions = request.PermissionIds.Select(id => new AssignPermission
-                {
-                    GroupPermissionId = id
-                }).ToList(),
-                AssignGroups = request.AccountIds.Select(id => new AssignGroup
-                {
-                    AccountId = id
-                }).ToList()
-            };
+                GroupPermissionId = id
+            }).ToList();
+            groupPermission.AssignGroups = request.AccountIds.Select(id => new AssignGroup
+            {
+                AccountId = id
+            }).ToList();
 
             _context.GroupPermissions.Add(groupPermission);
             await _context.SaveChangesAsync(cancellationToken);

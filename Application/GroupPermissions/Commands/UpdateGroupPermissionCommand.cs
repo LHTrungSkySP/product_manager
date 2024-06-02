@@ -1,4 +1,6 @@
-﻿using Application.GroupPermissions.Dto;
+﻿using Application.Common.Mapping;
+using Application.GroupPermissions.Dto;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.GroupPermissions.Commands
 {
-    public class UpdateGroupPermissionCommand : IRequest<GroupPermissionDto>
+    public class UpdateGroupPermissionCommand : IRequest<GroupPermissionDto>, IMapTo<GroupPermission>
     {
         public int Id { get; set; }
         public string Title { get; set; }
