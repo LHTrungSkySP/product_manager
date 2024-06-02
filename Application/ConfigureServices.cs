@@ -16,7 +16,7 @@ namespace Application
             //    .Build(); ;
             var assembly = typeof(ConfigureServices).Assembly;
             services.AddScoped<IJwtUtils, JwtUtils>();
-            services.AddScoped<IUserService, UserService>();
+            //services.AddScoped<IUserService, UserService>();
 
             services.AddAutoMapper(assembly);
             services.AddMediatR(configuration =>
